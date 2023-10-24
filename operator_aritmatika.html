@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Operator Aritmatika</title>
+    <style>
+        body {
+            background: fixed;
+            background-image: linear-gradient(to bottom, #ffea62, #f5ee66, #ecf26c, #e2f673, #d8fa7a, #ddf577, #e1ef75, #e4ea74, #f2da70, #fbcb71, #ffbd76, #ffb07e);
+            text-align: center;
+        }
+        h1 {
+            background-color: beige;
+        }
+        .wrapper {
+            width: 500px;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: rgb(241, 241, 241);
+            border-radius: 10px;
+            margin: 10px auto;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+        .wrapper h2 {
+            margin: 0;
+            text-align: center;
+            color: black;
+        }
+        .wrapper .angka {
+            display: block;
+            font-size: 1rem;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            outline: 0 auto;
+            border: 1px solid #ccc;
+            width: 298px;
+        }
+        .wrapper .tombol {
+            display: block;
+            margin: 0 auto;
+            font-size: 1rem;
+            padding: 8px 18px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            outline: 0 auto;
+            background-color: rgb(241, 205, 0);
+            color: black;
+            width: 120pt;
+        }
+        .wrapper .tombol:hover {
+            background:rgb(251, 255, 0);
+        }
+        .wrapper #hasil {
+            text-align: center;
+            font-size: 24pt;
+            font-weight: bold;
+            background-color: rgb(251, 255, 0);
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Operator Aritmatika</h1>
+    <div class="wrapper">
+        <h2> Menghitung 2 Buah Bilangan</h2><hr>
+        <table cellspacing="10">
+            <tr>
+                <td>Angka 1</td>
+                <td>:</td>
+                <td><input id="Angka1" class="angka" type="number" placeholder="ANGKA 1"></td>
+            </tr>
+            <tr>
+                <td>Angka 2</td>
+                <td>:</td>
+                <td><input id="Angka2" class="angka" type="number" placeholder="ANGKA 2"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+                <td>
+                    <table>
+                        <tr>
+                            <td><button id="tambah" class="tombol">+</button></td>
+                            <td><button id="kurang" class="tombol">-</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="kali" class="tombol">x</button></td>
+                            <td><button id="bagi" class="tombol">/</button></td>
+                        </tr>
+                        <tr>
+                            <td><button id="sisa" class="tombol">%</button></td>
+                            <td><button id="reset" class="tombol">Reset</button></td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>Hasil</td>
+                <td>:</td>
+                <td id="hasil">0</td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        let a1 = document.getElementById("Angka1");
+        let a2 = document.getElementById("Angka2")
+        let Hasil = document.getElementById("hasil");
+        let Tambah = document.getElementById("tambah")
+        let Kurang = document.getElementById("kurang")
+        let Kali = document.getElementById("kali")
+        let Bagi = document.getElementById("bagi")
+        let Sisa = document.getElementById("sisa")
+        let Reset = document.getElementById("reset")
+        let a = 0;
+        let b = 0;
+        let n = 0;
+
+        Tambah.addEventListener("click", function() {
+            a = Number(a1.value);
+            b = Number(a2.value);
+            Hasil.innerHTML = a + b;
+        })
+
+        Kurang.addEventListener("click", function() {
+            a = Number(a1.value);
+            b = Number(a2.value);
+            Hasil.innerHTML = a - b;
+        })
+
+        Kali.addEventListener("click", function() {
+            a = Number(a1.value);
+            b = Number(a2.value);
+            Hasil.innerHTML = a * b;
+        })
+
+        Bagi.addEventListener("click", function() {
+            a = Number(a1.value);
+            b = Number(a2.value);
+            Hasil.innerHTML = a / b;
+        })
+
+        Sisa.addEventListener("click", function() {
+            a = Number(a1.value);
+            b = Number(a2.value);
+            Hasil.innerHTML = a % b;
+        })
+
+        Reset.addEventListener("click", function() {
+            a1.value = "";
+            a2.value = "";
+            Hasil.innerHTML = "0";
+        })
+    </script>
+</body>
+</html>

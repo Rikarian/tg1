@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaji Karyawan</title>
+
+    <style>
+        body {
+            background: fixed;
+            background-image: linear-gradient(to right top, #6b00f8, #8c00fa, #a700fb, #c000fd, #d700fe, #9d61ff, #6380ff, #3b93ff, #00b0ff, #00caff, #00dff7, #00f2e2);
+        }
+        h1 {
+            background-color: rgb(241, 241, 241);
+            text-align: center;
+        }
+        table {
+            text-align: center;
+        }
+        .wrapper {
+            width: 500px;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: rgb(241, 241, 241);
+            border-radius: 10px;
+            margin: 10px auto;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+        .wrapper h2 {
+            margin: 0;
+            text-align: center;
+            color: black;
+        }
+        .wrapper .angka {
+            display: block;
+            margin: 10px auto;
+            font-size: 1rem;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            outline: 0 auto;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+        .wrapper .tombol {
+            display: block;
+            margin: 0 auto;
+            font-size: 1rem;
+            padding: 8px 18px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            outline: 0 auto;
+            background-color: rgb(133, 159, 245);
+            color: white;
+            width: 160pt;
+        }
+        .wrapper .tombol:hover {
+            background:rgb(231, 46, 185);
+        }
+    </style>
+</head>
+<body>
+    <h1>Gaji Karyawan</h1>
+    <div class="wrapper">
+        <h2>Menghitung Gaji Bersih Karyawan</h2><hr><br>
+        <input id="nama" class="angka" type="text" value="" placeholder="Nama Karyawan"><br> 
+        <input id="gaji" class="angka" type="number" value="" placeholder="Gaji"><br>
+        <table>
+            <tr>
+                <td><button class="tombol" onclick="sum()">🧮 Hitung</button></td>
+                <td><button class="tombol" onclick="reset()">❌ Reset</button></td>
+            </tr>
+        </table>
+        <p class="hasil">-</p>
+    </div>
+    <script>
+        let nama = document.getElementById("nama");
+        let gaji = document.getElementById("gaji");
+        let hasil = document.querySelector(".hasil");
+
+        function sum() {
+            if (nama.value.trim().length===0 || gaji.value.trim().length===0) {
+                hasil.innerHTML = "Belum bisa diproses, data tidak lengkap.";
+            } else {
+                let pokok = Number(gaji.value);
+                let tunjangan = (20/100)*pokok;
+                let pajak = (15/100)*(pokok+tunjangan);
+                hasil.innerHTML = "Gaji bersih atas nama <strong>"+String(nama.value)+"</strong> : <strong>Rp"
+                    +(pokok+tunjangan-pajak)+"</strong>";
+            }
+        }
+
+        function reset() {
+            nama.value = "";
+            gaji.value = "";
+            hasil.innerHTML = "-";
+        }
+    </script>
+        
+</body>
+</html>

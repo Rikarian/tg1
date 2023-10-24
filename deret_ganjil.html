@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deret Bilangan Ganjil</title>
+    <style>
+        body {
+            background: fixed;
+            background-image: linear-gradient(to right top, #00f8c2, #00fbaf, #00fd98, #00fe7c, #00ff5b, #78ef37, #a2df17, #bece00, #e0a800, #f67e04, #fd4c39, #f2005f);
+        }
+        h1 {
+            background-color: rgb(241, 241, 241);
+            text-align: center;
+        }
+        table {
+            text-align: center;
+        }
+        .wrapper {
+            width: 500px;
+            padding: 30px;
+            box-sizing: border-box;
+            background-color: rgb(241, 241, 241);
+            border-radius: 10px;
+            margin: 10px auto;
+            border: 1px solid #aaa;
+            text-align: center;
+        }
+        .wrapper h2 {
+            margin: 0;
+            text-align: center;
+            color: black;
+        }
+        .wrapper .angka {
+            display: block;
+            margin: 10px auto;
+            font-size: 1rem;
+            padding: 16px;
+            border-radius: 4px;
+            border: 1px solid #eee;
+            outline: 0 auto;
+            border: 1px solid #ccc;
+            width: 400px;
+        }
+        .wrapper .tombol {
+            display: block;
+            margin: 0 auto;
+            font-size: 1rem;
+            padding: 8px 18px;
+            border-radius: 8px;
+            border: 1px solid #eee;
+            outline: 0 auto;
+            background-color: rgb(41, 224, 185);
+            color: white;
+            width: 160pt;
+        }
+        .wrapper .tombol:hover {
+            background:rgb(162, 219, 55);
+        }
+        .wrapper .hasil {
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body>
+    <h1>Deret Bilangan Ganjil</h1>
+    <div class="wrapper">
+        
+        <h2>Mencetak Deret Bilangan Ganjil</h2><hr><br>
+        <input class="angka" type="number" value="" placeholder="Bilangan"><br>
+        <table>
+            <tr>
+                <td><button class="tombol" onclick="check()">🧮 Cek</button></td>
+                <td><button class="tombol" onclick="reset()">❌ Reset</button></td>
+            </tr>
+        </table>
+        <p class="hasil">-</p>
+    </div>
+</body>
+<script>
+    let bilangan = document.querySelector(".angka");
+    let hasil = document.querySelector(".hasil");
+    let bulat= 0;
+
+    function check () {
+        if (bilangan.value.trim().length === 0) {
+            hasil.innerHTML = "Input bilangan terlebih dahulu!";
+        } else {
+            bulat = Math.round(bilangan.value.trim());
+            if (bulat <= 1) {
+                hasil.innerHTML = "Input bilangan harus lebih dari 1!";
+            } else {
+                let array = [];
+                let hitungan = 0;
+                for (let i = 1; i <= bulat; i++) {
+                    if (i % 2 != 0) {
+                        array[hitungan] = i;
+                        hitungan++;
+                    }
+                }
+                hasil.innerHTML = array;
+            }
+        };
+    }
+
+    function reset (){
+        bilangan.value = "";
+        hasil.innerHTML = "-";
+    }
+    
+
+</script>
+</html>
